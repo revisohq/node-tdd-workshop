@@ -1,5 +1,7 @@
 const sum = (a, b) => {
-  // throw 123;
+  if((typeof a) !== 'number'){
+    throw new Error('Value a is not a number!')
+  }
   return a+b;
 };
 

@@ -13,11 +13,11 @@ describe("some meaningful tests", () => {
 
   test("it should throw an error in of string", () => {
     const shouldNotWork = jest.fn(() => {
-      console.log('I should NOT see this')
+      //console.log('I should NOT see this')
     });
 
     const shouldWork = jest.fn((err) => {
-      console.log('it works', err)
+      //console.log('it works', err)
     })
 
     try {
