@@ -10,4 +10,14 @@ describe("some meaningful tests", () => {
     const result = sum(3, 4);
     expect(result).toBe(7);
   });
+
+  test("it should throw an error in of string", () => {
+    try {
+      const result = sum('3', 4);
+      expect(result).toBe(7);
+    }
+    catch (err) {
+      console.log('it works', err)
+    }
+  });
 });
