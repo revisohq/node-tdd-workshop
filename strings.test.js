@@ -30,4 +30,10 @@ describe('strings', () => {
     expect(receivedOutput).toBe(expectedOutput)
   })
 
+  test('it should not concatenate weird stuff', () => {
+    const testInput = [{}, true, 'C', 1.5, [1,2], () => {}]
+    const expectedOutput = 'C'
+    const receivedOutput = concatenate(testInput)
+    expect(receivedOutput).toBe(expectedOutput)
+  })
 })
