@@ -7,4 +7,11 @@ describe('strings', () => {
     const receivedOutput = concatenate(testInput)
     expect(receivedOutput).toBe(expectedOutput)
   })
+
+  test('it should not concatenate 2 strings', () => {
+    const testInput = ['Aras', 'pegoraro']
+    const expectedOutput = 'Aras pegoraro'
+    const receivedOutput = concatenate(testInput)
+    expect(receivedOutput).toBe(expectedOutput)
+  })
 })
