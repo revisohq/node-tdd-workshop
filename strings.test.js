@@ -1,4 +1,4 @@
-const { concatenate } = require("./strings")
+const { concatenate, onlyString } = require("./strings")
 
 describe('strings', () => {
   test('it should concatenate marco pegoraro', () => {
@@ -14,7 +14,6 @@ describe('strings', () => {
     const receivedOutput = concatenate(testInput)
     expect(receivedOutput).toBe(expectedOutput)
   })
-
 
   test('it should concatenate a b c d', () => {
     const testInput = ['A', 'B', 'C', 'D']
@@ -43,4 +42,19 @@ describe('strings', () => {
     const receivedOutput = concatenate(testInput, "+")
     expect(receivedOutput).toBe(expectedOutput)
   })
+})
+
+describe('onlyString', () => {
+  test('it should validate a string', () => {
+    expect(onlyString('a')).toBe(true)
+  })
+
+  // Test a lot of bad values...
+  const listOfBadValues = [undefined, null, true, false, 0, 1, -1, {}, [], () => {}, NaN, Infinity, Object, String]
+  listOfBadValues.forEach((value) => {
+    test(`it should NOT validate "${String(value)}"`, () => {
+      expect(onlyString(value)).toBe(false)
+    })
+  })
+
 })
