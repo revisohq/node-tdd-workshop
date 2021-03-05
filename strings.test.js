@@ -22,4 +22,12 @@ describe('strings', () => {
     const receivedOutput = concatenate(testInput)
     expect(receivedOutput).toBe(expectedOutput)
   })
+
+  test('it should not concatenate number 1', () => {
+    const testInput = [1, 'B', 'C', 'D']
+    const expectedOutput = 'B C D'
+    const receivedOutput = concatenate(testInput)
+    expect(receivedOutput).toBe(expectedOutput)
+  })
+
 })
