@@ -36,4 +36,11 @@ describe('strings', () => {
     const receivedOutput = concatenate(testInput)
     expect(receivedOutput).toBe(expectedOutput)
   })
+
+  test('it should concatenate A+B+C+D', () => {
+    const testInput = ['A', 'B', 'C', 'D']
+    const expectedOutput = 'A+B+C+D'
+    const receivedOutput = concatenate(testInput)
+    expect(receivedOutput).toBe(expectedOutput)
+  })
 })
