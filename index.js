@@ -14,8 +14,19 @@ const sum = (a, b) => {
   return a+b;
 };
 
+
+const csum = (a) => {
+
+  return (b) => {
+
+    return a + b
+
+  }
+}
+
 module.exports = {
   sum,
+  csum,
   FirstArgumentTypeError,
   SecondArgumentTypeError
 };

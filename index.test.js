@@ -1,4 +1,4 @@
-const { sum, FirstArgumentTypeError, SecondArgumentTypeError } = require("./index");
+const { sum, csum, FirstArgumentTypeError, SecondArgumentTypeError } = require("./index");
 
 describe("some meaningful tests", () => {
   test("it should sum 1 and 2", () => {
@@ -53,3 +53,15 @@ describe("some meaningful tests", () => {
     expect(shouldNotWork.mock.calls.length).toBe(0)
   });
 });
+
+
+describe('curried sum', () => {
+  it('should work', () => {
+    const partialSumFn = csum(1)
+    const result = partialSumFn(2)
+    const result1 = partialSumFn(5)
+
+    expect(result).toBe(3)
+    expect(result1).toBe(6)
+  })
+})

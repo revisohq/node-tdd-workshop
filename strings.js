@@ -1,6 +1,6 @@
 const onlyString = input => (typeof input) === 'string'
 
-const __concatenate = (strings, splitOperator = " ") =>{
+const _concatenate = (strings, splitOperator = " ") =>{
   const charElements = strings.filter(c => (typeof c) === 'string');
   const constracteString = charElements.join([splitOperator]);
   return constracteString;
