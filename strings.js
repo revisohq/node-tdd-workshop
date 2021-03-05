@@ -1,5 +1,6 @@
 const concatenate = (strings) =>{
-  return strings[0] + " " + strings[1];
+  const constracteString = strings.join([" "])
+  return constracteString;
 };
 module.exports = {
   concatenate
