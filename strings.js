@@ -1,5 +1,5 @@
-const concatenate =()=>{
-  return 'marco pegoraro';
+const concatenate = (strings) =>{
+  return strings[0] + " " + strings[1];
 };
 module.exports = {
   concatenate
