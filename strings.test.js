@@ -1,4 +1,5 @@
 const { concatenate, onlyString } = require("./strings")
+const each = require('jest-each').default;
 
 describe('strings', () => {
   test('it should concatenate marco pegoraro', () => {
@@ -57,4 +58,19 @@ describe('onlyString', () => {
     })
   })
 
+})
+
+describe('test jest-each', () => {
+  test('it should validate a string using jest-each', () => {
+    expect(onlyString('a')).toBe(true)
+  })
+  each`
+    input           | expectedResult
+    ${undefined}    | ${false}
+    ${null}         | ${false}
+    ${true}         | ${false}
+    ${'a'}          | ${true}
+  `.test('converts $input to $expectedResult', ({ input, expectedResult }) => {
+    expect(onlyString(input)).toBe(expectedResult)
+  })
 })
