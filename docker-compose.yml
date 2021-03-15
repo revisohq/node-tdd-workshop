@@ -2,16 +2,13 @@ version: '3.8'
 services:
   postgres:
     image: postgres:13.0
-    restart: always
-    ports:
-      - ${PG_HOST_PORT:-5432}:5432
-    volumes:
-      - ./pg-data/postgres:/var/lib/postgresql/data:consistent
-      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
-    healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U postgres']
-      interval: 5s
-      timeout: 5s
-      retries: 60
+    volumes:
+      - ./pg-data/postgres:/var/lib/postgresql/data
+      - ./pg-init:/docker-entrypoint-initdb.d
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
