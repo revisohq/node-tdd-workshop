@@ -1,6 +1,6 @@
-const curriedSum = () => {
-    return () => {
-        return 2
+const curriedSum = (number1) => {
+    return (number2) => {
+        return number1 + number2
     }
 }
 
