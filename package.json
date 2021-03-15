@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/nodemon index.js",
-    "test": "./node_modules/.bin/jest",
-    "tdd": "./node_modules/.bin/jest --watchAll"
+    "test": "npm run test:unit",
+    "test:unit": "./node_modules/.bin/jest --projects jest-templates/unit",
+    "test:e2e": "./node_modules/.bin/jest --projects jest-templates/e2e --runInBand",
+    "tdd:unit": "./node_modules/.bin/jest --projects jest-templates/unit --watchAll",
+    "tdd:e2e": "./node_modules/.bin/jest --projects jest-templates/e2e --runInBand --watchAll"
   },
   "repository": {
     "type": "git",
