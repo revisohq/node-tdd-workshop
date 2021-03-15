@@ -57,4 +57,32 @@ describe('onlyString', () => {
     })
   })
 
+  test.each(listOfBadValues)(
+    "2- it should NOT validate %p",
+    (firstArg) => {
+      expect(onlyString(firstArg)).toBe(false);
+    }
+  );
+  
+  test.each`
+	input  
+	${undefined} 
+  ${null}
+	${true}
+	${false}
+	${0}
+	${1}
+	${-1}
+	${{}}
+	${[]}
+  ${() => {}}
+	${NaN}
+	${Infinity}
+	${Object}
+	${String}
+
+	// add new test cases here`
+  ("3- it should NOT validate $input", ({ input}) => {
+    expect(onlyString(input)).toBe(false)
+	})
 })
