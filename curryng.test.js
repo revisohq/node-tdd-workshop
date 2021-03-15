@@ -8,6 +8,12 @@ describe('currying', () => {
     expect(result).toBe(2)
   })
 
+  it('should be able to sum 1 + 2', () => {
+    const fn = curriedSum(1)
+    const result = fn(2)
+    expect(result).toBe(3)
+  })
+
 
   // test('it should work', () => {
 
