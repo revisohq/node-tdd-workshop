@@ -2,6 +2,8 @@ version: '3.8'
 services:
   postgres:
     image: postgres:13.0
+    ports:
+      - 15432:5432
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
     volumes:
@@ -11,4 +13,4 @@ services:
   adminer:
     image: adminer
     ports:
-      - 8080:8080
+      - 18080:8080
