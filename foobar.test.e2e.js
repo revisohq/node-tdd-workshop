@@ -1,4 +1,6 @@
 const { Client }  = require('pg');
+const fs = require('fs')
+const path = require('path')
 
 const pgConfig = {
   user: 'postgres',
@@ -8,23 +10,17 @@ const pgConfig = {
   port: 15432,
 }
 
+// Read from the initDb script to automate the state restore
+const initSqlPath = path.join('./', 'pg-init', 'on-first-boot.sql')
+const initSqlData = fs.readFileSync(initSqlPath, 'utf-8')
+
 describe('Use "users" table', () => {
   let client = null;
 
   beforeEach(async () => {
     client = new Client(pgConfig)
     await client.connect()
-
-    await client.query(`
-      TRUNCATE "users" RESTART IDENTITY;
-      INSERT INTO "users" ("name", "bday", "height") VALUES 
-      ('Marco', '1981-06-30', '182'),
-      ('Janis', '1989-01-14', '172'),
-      ('Stefania', '1988-12-19', '164'),
-      ('Khalaf', '1994-02-27', '185'),
-      ('Aras', '1979-03-21', '171'),
-      ('Alessio', '1980-05-03', '175');    
-    `)
+    await client.query(initSqlData)
   })
 
   afterEach(async () => {

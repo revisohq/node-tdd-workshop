@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/nodemon index.js",
-    "test": "npm run test:unit",
+    "test": "docker-compose down && rm -rf pg-data && rm -rf node_modules && docker-compose up -d && npm i && npm test && npm run test:e2e && docker-compose down",
     "test:unit": "./node_modules/.bin/jest --projects jest-templates/unit",
     "test:e2e": "./node_modules/.bin/jest --projects jest-templates/e2e --runInBand",
     "tdd:unit": "./node_modules/.bin/jest --projects jest-templates/unit --watchAll",

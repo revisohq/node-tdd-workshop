@@ -1,11 +1,14 @@
-CREATE TABLE "users" (
+CREATE TABLE IF NOT EXISTS "users" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR(255) NOT NULL,
     "bday" TIMESTAMP,
     "height" SMALLINT
 );
 
-INSERT INTO "users" ("name", "bday", "height") VALUES 
+
+TRUNCATE "users" RESTART IDENTITY;
+INSERT INTO "users" ("name", "bday", "height")
+VALUES 
 ('Marco', '1981-06-30', '182'),
 ('Janis', '1989-01-14', '172'),
 ('Stefania', '1988-12-19', '164'),
