@@ -8,7 +8,7 @@ server.get('/hello', (request, reply) => {
   })
 })
 
-server.listen(8080, (err, serverAddr) => {
+server.listen(6173, (err, serverAddr) => {
   if (err) {
     console.log('oh no')
     process.exit(-1)
