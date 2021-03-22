@@ -1,10 +1,11 @@
-const axios = require('axios')
+// const axios = require('axios')
+const { axios } = global
 
 describe('App', () => {
   it('should say hello', async () => {
     const fn = jest.fn()
     try {
-      await axios.get('http://localhost:6173/hello')
+      await axios.get('/hello')
     } catch (err) {
       fn(err.response)
     }
@@ -17,7 +18,7 @@ describe('App', () => {
   })
 
   it('should upper case somehting', async () => {
-    const response = await axios.post('http://localhost:6173/uc', {
+    const response = await axios.post('/uc', {
       name: 'foo'
     })
 

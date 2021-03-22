@@ -24,5 +24,7 @@ module.exports = {
   
     testMatch: ['**/?(*.)+(spec.app|test.app).[jt]s?(x)'],
 
+    globals: require('./jest.globals'),
+
     globalSetup: path.join(__dirname, 'jest.setup.js'),
 };

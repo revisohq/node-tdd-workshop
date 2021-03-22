@@ -19,7 +19,6 @@ server.post('/uc', (request, reply) => {
   })
 })
 
-
 setTimeout(() => {
   server.listen(6173, (err, serverAddr) => {
     if (err) {
