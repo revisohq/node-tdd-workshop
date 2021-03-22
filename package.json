@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/nodemon index.js",
-    "test": "./node_modules/.bin/jest",
-    "tdd": "./node_modules/.bin/jest --watchAll"
+    "test": "docker-compose down && rm -rf pg-data && rm -rf node_modules && docker-compose up -d && npm i && npm test && npm run test:e2e && docker-compose down",
+    "test:unit": "./node_modules/.bin/jest --projects jest-templates/unit",
+    "test:e2e": "./node_modules/.bin/jest --projects jest-templates/e2e --runInBand",
+    "tdd:unit": "./node_modules/.bin/jest --projects jest-templates/unit --watchAll",
+    "tdd:e2e": "./node_modules/.bin/jest --projects jest-templates/e2e --runInBand --watchAll"
   },
   "repository": {
     "type": "git",
@@ -19,7 +22,8 @@
   },
   "homepage": "https://github.com/revisohq/node-tdd-workshop#readme",
   "dependencies": {
-    "fastify": "^3.12.0"
+    "fastify": "^3.12.0",
+    "pg": "^8.5.1"
   },
   "devDependencies": {
     "jest": "^26.6.3",
