@@ -52,5 +52,17 @@ describe('Use "users" table', () => {
     const r2 = await client.query(`SELECT * FROM "users" WHERE "height" = 9999 AND "id" = ${userId} LIMIT 1`)
     expect(r2.rowCount).toBe(1)
   });
+
+  it('should insert user Janix in to the db', async () => {
+    // const r1 = await client.query('SELECT * FROM "users" LIMIT 1')
+    // const userId = r1.rows[0].id
+
+    await client.query(`INSERT INTO "users" ("name", "bday", "height") VALUES('Janix', '1989-01-14', '172')`)
+    
+
+    const r2 = await client.query(`SELECT * FROM "users" WHERE "name" = 'Janix' LIMIT 1`)
+    expect(r2.rowCount).toBe(1)
+    expect(r2.rows[0].name).toBe("Janix")
+  });
 })
 
